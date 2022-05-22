@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"q":"To be truly positive in the eyes of some, you have to risk appearing negative in the eyes of others.","a":"Criss Jami","c":100,"h":"<blockquote>&ldquo;To be truly positive in the eyes of some, you have to risk appearing negative in the eyes of others.&rdquo; &mdash; <footer>Criss Jami</footer></blockquote>"}
+----
