@@ -17,19 +17,12 @@ public class QuoteManager {
 
 	private static Logger logger = LoggerFactory.getLogger(QuoteManager.class);
 
-
-    public static Quote randomQuote(){
+    //This function must be synchronized because if multiple users attempt to alter it, the outcome will not be good..
+    public synchronized static Quote randomQuote(){
         //If the quotes array isn't yet initialized
         if (quotes == null){
-            //init it
-            grabQuotes();
-            quote_counter = 0;
-
-            //If it's still null then there was some kind of error that prevented it from being initialized
-            if (quotes == null){
-                logger.error("Failed to load quotes !");
-                return null;
-            }
+            logger.error("Failed to load quotes !");
+            return null;
         }
         //reset the counter if we reach the end of the array
         else if (quote_counter >= quotes.length){
@@ -42,7 +35,7 @@ public class QuoteManager {
     }
 
     //This method loads the quotes from the website into the array quotes
-    private static void grabQuotes() {
+    public static void grabQuotes() {
         String url = "https://zenquotes.io/api/quotes";
         RestTemplate restTemplate = new RestTemplate();
         try{
